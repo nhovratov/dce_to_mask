@@ -1,0 +1,25 @@
+{
+    "name": "hov/dce-to-mask",
+    "description": "DCE to Mask migration",
+    "type": "typo3-cms-extension",
+    "require": {
+        "typo3/cms-core": "^12.4"
+    },
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Qbus\\DceToMask\\": "Classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nikita Hovratov",
+            "email": "entwicklung@nikita-hovratov.de"
+        }
+    ],
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "dce_to_mask"
+        }
+    }
+}
