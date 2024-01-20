@@ -34,4 +34,17 @@ then `vendor/bin/typo3 upgrade:run dbToFile`.
 
 ## Step 6
 
-Profit.
+Migrate `sys_file_reference` records with manually written SQL migrations:
+
+```
+UPDATE sys_file_reference
+    JOIN tt_content
+ON sys_file_reference.uid_foreign = tt_content.uid
+    SET sys_file_reference.fieldname = 'tx_mask_logos' -- the new Mask image field name
+WHERE sys_file_reference.fieldname = 'logos' -- the old DCE FlexForm field identifier
+  AND tt_content.CType = 'mask_logos'; -- the new Mask CType
+```
+
+## Step 7
+
+Uninstall DCE and run Database Analyzer in order to remove obsolete tables.
